@@ -52,8 +52,8 @@
     <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
     {%- if request.page_type != 'password' -%}
-      {%- sections 'header-group' -%}
-      {%- sections 'overlay-group' -%}
+      
+      
 
       {%- if settings.cart_type == 'popover' -%}
         <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
@@ -65,14 +65,14 @@
     {%- endif -%}
 
     <main role="main" id="main" class="anchor">
-      {{ content_for_layout }}
+      <div class="foxify-container">{{ content_for_layout }}</div>
 
       {%- comment -%}
       IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing, the footer group is
       added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
       {%- endcomment -%}
       {%- if request.page_type != 'password' -%}
-        {%- sections 'footer-group' -%}
+        
       {%- endif -%}
     </main>
   {%- render 'foxify-footer' -%} {% sections 'foxify-footer-group' %} </body>
